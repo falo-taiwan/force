@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Force Cheng | AI × Audit × Workflow</title>
+  <meta name="description" content="Force Cheng 一頁式首頁。用於演講 QRCode 導流，5 秒內理解你是誰、你在做什麼，以及下一步可以做什麼。">
+  <meta name="theme-color" content="#f6efe3">
+  <style>
+    :root {
+      --surface: rgba(255, 252, 246, 0.94);
+      --surface-strong: #fffdf8;
+      --text: #2e241d;
+      --muted: #6f6257;
+      --line: rgba(92, 72, 53, 0.14);
+      --brand: #b6632d;
+      --brand-deep: #8e4c22;
+      --brand-soft: rgba(182, 99, 45, 0.1);
+      --shadow: 0 18px 48px rgba(77, 57, 34, 0.12);
+      --max-width: 980px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Iansui", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(182, 99, 45, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(42, 126, 120, 0.08), transparent 24%),
+        linear-gradient(180deg, #fbf6ee 0%, #f3ebde 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(var(--max-width), calc(100% - 20px));
+      margin: 0 auto;
+      padding: 14px 0 28px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(34px, 11vw, 58px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: clamp(24px, 7vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .hero-lead {
+      color: var(--brand-deep);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .copy,
+    .card p,
+    .bullet-list,
+    footer {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .grid,
+    .button-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface-strong);
+    }
+
+    .mini-tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .bullet-list li + li {
+      margin-top: 6px;
+    }
+
+    .button-grid a,
+    .tool-grid a {
+      display: grid;
+      gap: 6px;
+      min-height: 86px;
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid transparent;
+      font-weight: 800;
+    }
+
+    .button-grid a {
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), #d0874d);
+      box-shadow: 0 14px 28px rgba(182, 99, 45, 0.2);
+    }
+
+    .tool-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tool-grid a {
+      color: var(--text);
+      border-color: var(--line);
+      background: var(--surface-strong);
+    }
+
+    .action-meta,
+    .tool-meta {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .tool-meta {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 6px 4px 0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (min-width: 720px) {
+      .page {
+        width: min(var(--max-width), calc(100% - 32px));
+        padding-top: 22px;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .button-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="stack">
+      <section class="panel">
+        <div class="eyebrow">Force Landing v0.1</div>
+        <h1>Force Cheng</h1>
+        <div class="hero-lead">AI × Audit × Workflow</div>
+        <p class="copy">幫你把 AI 變成可用的系統。從導入理解、治理框架到實作流程，讓團隊可以真的拿來用。</p>
+      </section>
+
+      <section class="panel">
+        <h2>我在做什麼</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="mini-tag">AI Workflow</span>
+            <h3>AI Workflow</h3>
+            <p>把 AI 放進工作流，而不是停留在單點工具使用。</p>
+          </article>
+          <article class="card">
+            <span class="mini-tag">AI Governance</span>
+            <h3>AI Governance</h3>
+            <p>把治理、風險、角色與邊界整理成可落地的管理框架。</p>
+          </article>
+          <article class="card">
+            <span class="mini-tag">AI Tools</span>
+            <h3>AI Tools</h3>
+            <p>把工具整理成模型菜與現場可操作的入口，降低導入門檻。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>今日分享內容</h2>
+        <p class="copy">電腦公會版本，先聚焦三件最重要的事。</p>
+        <ul class="bullet-list">
+          <li>AI 現狀與趨勢</li>
+          <li>AI 治理</li>
+          <li>實用工具與現場案例</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>下一步</h2>
+        <div class="card">
+          <h3>FALO｜AI 實戰交流平台</h3>
+          <p>我們整理 AI 在工作與生活中的實際用法，包含工具、workflow、agent 與導入案例。</p>
+          <p>填寫這份問卷（約 1 分鐘），你將獲得：</p>
+          <ul class="bullet-list">
+            <li>專屬虛擬帳號 + PIN</li>
+            <li>一組優惠碼（可兌換後續小禮物）</li>
+            <li>FALO AI 資源與活動優先參與</li>
+          </ul>
+          <p>📌 填寫完成後，請務必保存你的優惠碼</p>
+          <p>👉 未來寄信給我時貼上，我會提供對應的精美小禮物</p>
+          <p>👉 現在開始填寫（約 1 分鐘）</p>
+        </div>
+        <div class="button-grid">
+          <a href="#" onclick="alert('請補上簡報連結'); return false;">
+            <span class="action-meta">Slides</span>
+            <span>📄 簡報</span>
+          </a>
+          <a href="https://falo-taiwan.github.io/survey/" target="_blank">
+            <span class="action-meta">Survey</span>
+            <span>📝 填寫問卷（取得優惠碼）</span>
+          </a>
+          <a href="https://www.linkedin.com/in/force-cheng-taiwan/" target="_blank">
+            <span class="action-meta">Profile</span>
+            <span>🔗 LinkedIn</span>
+          </a>
+          <a href="mailto:force.20260328@m2k.com.tw?subject=Force%20Cheng%20Talk%20Follow-up">
+            <span class="action-meta">Contact</span>
+            <span>📩 寄信給我（附優惠碼）</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>模型菜入口</h2>
+        <div class="tool-grid">
+          <a href="../../tools/qrcode/index.html">
+            <span class="tool-meta">Tool</span>
+            <span>QRCode 工具</span>
+          </a>
+          <a href="#" onclick="alert('Shortlink 工具建置中'); return false;">
+            <span class="tool-meta">Tool</span>
+            <span>Shortlink</span>
+          </a>
+          <a href="#" onclick="alert('OCR 工具建置中'); return false;">
+            <span class="tool-meta">Tool</span>
+            <span>OCR</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Force Cheng × FALO</footer>
+</body>
+</html>
